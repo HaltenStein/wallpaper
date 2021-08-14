@@ -29,7 +29,7 @@ def select_path() -> list[str, str]:
         path_image = PATH + "\\image\\morning\\"
     elif 11 <= hour_now <= 17:
         path_image = PATH + "\\image\\day\\"
-    elif 18 <= hour_now <= 5:
+    else:
         path_image = PATH + "\\image\\night\\"
     return path_image, next(walk(path_image), (None, None, []))[2]
 
