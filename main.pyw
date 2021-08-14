@@ -1,4 +1,3 @@
-import struct
 import ctypes
 from datetime import datetime
 from time import sleep
@@ -10,17 +9,9 @@ SPI_SETDESKWALLPAPER = 20
 PATH = getcwd()
 
 
-def is_64bit_windows() -> bool:
-    """Check if 64 bit Windows OS"""
-    return struct.calcsize('P') * 8 == 64
-
-
 def changeBG(paht_image: str):
     """Change background depending on bit size"""
-    if is_64bit_windows():
-        ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, paht_image, 3)
-    else:
-        ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, paht_image, 3)
+    ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, paht_image, 3)
 
 
 def select_path() -> list[str, str]:
