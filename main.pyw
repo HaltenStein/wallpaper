@@ -36,7 +36,7 @@ def select_path() -> list[str, str]:
 
 if __name__ == '__main__':
     while True:
-        path_image, filenames = select_path()
-        path_image = path_image + filenames[randint(0, len(filenames)-1)]
+        path_image, file_names = select_path()
+        path_image = path_image + file_names[randint(0, len(file_names)-1)]
         changeBG(path_image)
         sleep(1800)
